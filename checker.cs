@@ -4,9 +4,6 @@ namespace paradigm_shift_csharp
 {
 class Checker
 {
-    bool tempok;
-    bool socok;
-    bool CRok;
     static bool IsparameterInRange(float parameter, float min,float max)
     {
         return parameter>=min && maxcheck(parameter,max);
