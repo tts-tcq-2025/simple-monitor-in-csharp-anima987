@@ -4,18 +4,31 @@ namespace paradigm_shift_csharp
 {
 class Checker
 {
-    static bool batteryIsOk(float temperature, float soc, float chargeRate) {
-        if(temperature < 0 || temperature > 45) {
-            Console.WriteLine("Temperature is out of range!");
-            return false;
-        } else if(soc < 20 || soc > 80) {
-            Console.WriteLine("State of Charge is out of range!");
-            return false;
-        } else if(chargeRate > 0.8) {
-            Console.WriteLine("Charge Rate is out of range!");
-            return false;
+    static bool IsparameterInRange(float parameter, float min, float max, string parameterName)
+    {
+        bool result = parameter >= min && parameter <= max;
+        if (!result)
+        {
+            Console.WriteLine($"{parameterName} is out of range");
         }
-        return true;
+        return result;
+    }
+
+    static bool maxcheck(float parameter, float max, string parameterName)
+    {
+        bool result = parameter <= max;
+        if (!result)
+        {
+            Console.WriteLine($"{parameterName} is out of range");
+        }
+        return result;
+    }
+    static bool batteryIsOk(float temperature, float soc, float chargeRate) {
+        bool tempok=IsparameterInRange(temperature,0,40,"Temperature");
+        bool socok=IsparameterInRange(soc,20,80,"soc");
+        bool CRok=maxcheck(chargeRate,0.8f,"chargerate");
+        bool allok= tempok && socok && CRok;
+        return allok;
     }
 
     static void ExpectTrue(bool expression) {
