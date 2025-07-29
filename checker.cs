@@ -20,14 +20,13 @@ class Checker
         bool socok=IsparameterInRange(temperature,20,80);
         bool CRok=maxcheck(chargeRate,0.8);
         bool allok= tempok && socok && CRok;
-        if(allok)
-        {
-            return allok;
-        }
-        else
-        {
-            
-        }   
+        if(!tempok)
+            Console.WriteLine("Temperature is out of range");
+        if (!socok)
+            Console.WriteLine("State of Charge is out of range");
+        if (!CRok)
+            Console.WriteLine("Charge Rate is out of range");
+        return allok;
     }
 
     static void ExpectTrue(bool expression) {
