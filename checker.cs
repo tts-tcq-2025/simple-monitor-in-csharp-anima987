@@ -25,7 +25,7 @@ class Checker
     }
     static bool batteryIsOk(float temperature, float soc, float chargeRate,) {
         bool tempok=IsparameterInRange(temperature,0,40,"Temperature");
-        bool socok=IsparameterInRange(soc,20,80"soc");
+        bool socok=IsparameterInRange(soc,20,80,"soc");
         bool CRok=maxcheck(chargeRate,0.8f,"chargerate");
         bool allok= tempok && socok && CRok;
         return allok;
