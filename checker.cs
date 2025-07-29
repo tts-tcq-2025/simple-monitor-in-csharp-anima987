@@ -4,6 +4,9 @@ namespace paradigm_shift_csharp
 {
 class Checker
 {
+    bool tempok;
+    bool socok;
+    bool CRok;
     static bool IsparameterInRange(float parameter, float min,float max)
     {
         return parameter>=min && maxcheck(parameter,max);
@@ -12,13 +15,19 @@ class Checker
     {
         return parameter<=max;
     }
-    static bool batteryIsOk(float temperature, float soc, float chargeRate) {
+    static bool batteryIsOk(float temperature, float soc, float chargeRate, void (*output) {
         bool tempok=IsparameterInRange(temperature,0,40);
         bool socok=IsparameterInRange(temperature,20,80);
         bool CRok=maxcheck(chargeRate,0.8);
-            Console.WriteLine("Temperature is out of range!");            
-            Console.WriteLine("State of Charge is out of range!");    
-            Console.WriteLine("Charge Rate is out of range!");
+        bool allok= tempok && socok && CRok;
+        if(allok)
+        {
+            return allok;
+        }
+        else
+        {
+            
+        }   
     }
 
     static void ExpectTrue(bool expression) {
