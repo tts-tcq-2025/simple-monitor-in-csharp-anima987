@@ -13,9 +13,9 @@ class Checker
         return parameter<=max;
     }
     static bool batteryIsOk(float temperature, float soc, float chargeRate) {
-        boolean tempok=IsparameterInRange(temperature,0,40);
-        boolean socok=IsparameterInRange(temperature,20,80);
-        boolean CRok=maxcheck(chargeRate,0.8);
+        bool tempok=IsparameterInRange(temperature,0,40);
+        bool socok=IsparameterInRange(temperature,20,80);
+        bool CRok=maxcheck(chargeRate,0.8);
             Console.WriteLine("Temperature is out of range!");            
             Console.WriteLine("State of Charge is out of range!");    
             Console.WriteLine("Charge Rate is out of range!");
